@@ -4,7 +4,6 @@ import sys
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 
-
 class myWindow(Gtk.Window):
     def __init__(self):
         super().__init__(title="Hello World")

@@ -1,16 +1,26 @@
+'''
+Returns a dictionary with items indexed in the order that they appear in list passed. 
+dictionary item nammed 'count' is the number of items
+'''
+
 def parseArgs(args):
-    i = 0 
-    labelCount = 0
-    buttonCount = 0
+    itemType = ""
+    items={'count':0}
     for arg in args:
         if arg == "-L" or arg == "--label":
-            labelCount += 1
-            label + 
+            items['count'] += 1
+            items[items['count']] = ['label']
+            itemType = "label"
 
-        ++i
+        elif arg == "-B" or arg == "--button":
+            items['count'] += 1
+            items[items['count']] = ['button']
+            itemType = "button"
+        
+        elif itemType == "":
+            continue
 
-'''
-make dictionary
-when new thing is hit, make new entry with list of the things for that new gtk item
-iterate through dictionary and through the lists in the dictionary to make the items  
-'''
+        else:
+            items[items['count']].append(arg)
+
+    return(items)
